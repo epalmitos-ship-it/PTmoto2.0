@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PTmoto Philippines | Official Website & WorldSBK Factory Team</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Teko:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pt-yellow: #ffe600;
+            --pt-yellow-dark: #ccb800;
+            --pt-yellow-glow: rgba(255, 230, 0, 0.4);
+            --bg-black: #08080a;
+            --bg-card: #101014;
+            --bg-surface: #16161c;
+            --text-white: #ffffff;
+            --text-gray: #9e9eb0;
+            --border-dark: #242430;
+            --font-head: 'Orbitron', sans-serif;
+            --font-sub: 'Teko', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-white);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
+
+        /* ANNOUNCEMENT BAR */
+        .top-bar {
+            background: var(--pt-yellow);
+            color: #000;
+            font-family: var(--font-head);
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 0.4rem 1rem;
+            position: relative;
+            z-index: 1001;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(8, 8, 10, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border-dark);
+            padding: 0.8rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 40px;
+            object-fit: contain;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.2rem;
+        }
+
+        nav a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-family: var(--font-head);
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--pt-yellow);
+        }
+
+        .cta-btn {
+            background: var(--pt-yellow);
+            color: #000;
+            font-family: var(--font-head);
+            font-weight: 800;
+            font-size: 0.8rem;
+            padding: 0.65rem 1.4rem;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+        }
+
+        .cta-btn:hover {
+            background: var(--pt-yellow-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px var(--pt-yellow-glow);
+        }
+
+        /* HERO BANNER WITH DECORATIVE BIKE DISPLAY */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2rem 8%;
+            background: linear-gradient(90deg, rgba(8,8,10,0.98) 0%, rgba(8,8,10,0.65) 55%, rgba(8,8,10,0.95) 100%), 
+                        radial-gradient(circle at 75% 50%, rgba(255, 230, 0, 0.18) 0%, transparent 60%);
+            border-bottom: 2px solid var(--pt-yellow);
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-content {
+            max-width: 580px;
+            flex: 1;
+            min-width: 300px;
+            z-index: 2;
+        }
+
+        .hero-tag {
+            background: var(--pt-yellow);
+            color: #000;
+            font-family: var(--font-head);
+            font-size: 0.75rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            padding: 0.3rem 0.8rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-head);
+            font-size: clamp(2.5rem, 5.2vw, 4.2rem);
+            font-weight: 900;
+            letter-spacing: 2px;
+            line-height: 1.05;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* HERO DECORATIVE BIKE */
+        .hero-deco-container {
+            flex: 1;
+            min-width: 320px;
+            max-width: 620px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-deco-img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.95)) drop-shadow(0 0 15px rgba(255,230,0,0.25));
+            transition: transform 0.4s ease;
+            animation: heroFloat 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroFloat {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-10px); }
+        }
+
+        /* CATEGORY TABS */
+        .catalog-section {
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: var(--font-head);
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .tab-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            color: var(--text-gray);
+            font-family: var(--font-head);
+            font-size: 0.75rem;
+            padding: 0.7rem 1.4rem;
+            border-radius: 2px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--pt-yellow);
+            color: #000;
+            border-color: var(--pt-yellow);
+            font-weight: 800;
+        }
+
+        /* COMPARISON TOOL SECTION */
+        .compare-container {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-dark);
+            border-top: 3px solid var(--pt-yellow);
+            border-radius: 4px;
+            padding: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .compare-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .compare-header h3 {
+            font-family: var(--font-head);
+            font-size: 1.4rem;
+            text-transform: uppercase;
+        }
+
+        .compare-selects {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .compare-dropdown {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            color: var(--text-white);
+            font-family: var(--font-head);
+            font-size: 0.85rem;
+            padding: 0.7rem 1.2rem;
+            border-radius: 2px;
+            outline: none;
+            cursor: pointer;
+            min-width: 260px;
+        }
+
+        .compare-dropdown:focus {
+            border-color: var(--pt-yellow);
+        }
+
+        .compare-matrix {
+            display: grid;
+            grid-template-columns: 1fr 120px 1fr;
+            gap: 1rem;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .compare-bike-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .compare-bike-box img {
+            max-width: 100%;
+            height: 160px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+        }
+
+        .compare-bike-title {
+            font-family: var(--font-sub);
+            font-size: 1.8rem;
+            line-height: 1;
+            text-transform: uppercase;
+            margin-bottom: 0.2rem;
+        }
+
+        .compare-stat-label {
+            font-family: var(--font-head);
+            font-size: 0.72rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .stat-comparison-row {
+            display: grid;
+            grid-template-columns: 1fr 120px 1fr;
+            gap: 1rem;
+            padding: 0.7rem 0;
+            border-bottom: 1px solid var(--border-dark);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .stat-val-highlight {
+            color: var(--pt-yellow);
+            font-weight: 700;
+        }
+
+        /* MOTORCYCLE SHOWROOM GRID */
+        .showroom-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 2rem;
+        }
+
+        .moto-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .moto-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--pt-yellow);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px var(--pt-yellow-glow);
+        }
+
+        .moto-img-box {
+            background: #000;
+            height: 260px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 1rem;
+        }
+
+        .moto-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .moto-card:hover .moto-img-box img {
+            transform: scale(1.04);
+        }
+
+        .moto-details {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-top: 2px solid var(--border-dark);
+        }
+
+        .moto-card:hover .moto-details {
+            border-top-color: var(--pt-yellow);
+        }
+
+        .moto-cat {
+            font-family: var(--font-head);
+            font-size: 0.68rem;
+            color: var(--pt-yellow);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .moto-name {
+            font-family: var(--font-sub);
+            font-size: 2.2rem;
+            line-height: 1;
+            margin: 0.2rem 0 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .moto-price {
+            font-family: var(--font-head);
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .moto-price.race-only {
+            color: var(--pt-yellow);
+            letter-spacing: 1px;
+        }
+
+        /* LIVERY SWITCHER BUTTONS */
+        .livery-picker {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .livery-lbl {
+            font-family: var(--font-head);
+            font-size: 0.68rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+        }
+
+        .livery-dot {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: 2px solid var(--border-dark);
+            cursor: pointer;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .livery-dot:hover, .livery-dot.active {
+            transform: scale(1.15);
+            border-color: #fff;
+        }
+
+        .dot-black { background: #111118; }
+        .dot-blue { background: #0d47a1; }
+        .dot-yellow { background: var(--pt-yellow); }
+
+        .moto-specs-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            background: var(--bg-surface);
+            padding: 0.8rem;
+            border-radius: 2px;
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            margin-bottom: 1.2rem;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-dark);
+            color: var(--text-white);
+            font-family: var(--font-head);
+            font-size: 0.7rem;
+            padding: 0.6rem 1rem;
+            width: 100%;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--pt-yellow);
+            color: var(--pt-yellow);
+        }
+
+        /* WORLDSBK FACTORY SPOTLIGHT */
+        .flagship-banner {
+            background: radial-gradient(circle at 20% 50%, #1a1a24 0%, #08080a 70%);
+            border-top: 1px solid var(--border-dark);
+            border-bottom: 1px solid var(--border-dark);
+            padding: 5rem 8%;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .flagship-img-col {
+            flex: 1;
+            min-width: 320px;
+            text-align: center;
+        }
+
+        .flagship-img-col img {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 25px rgba(0,0,0,0.9));
+        }
+
+        .flagship-text-col {
+            flex: 1;
+            min-width: 320px;
+        }
+
+        .flagship-title {
+            font-family: var(--font-head);
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            line-height: 1.05;
+            margin: 0.8rem 0 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .rider-badge {
+            font-family: var(--font-sub);
+            font-size: 1.6rem;
+            color: var(--pt-yellow);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+        }
+
+        .flagship-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+            background: var(--bg-card);
+            padding: 1.2rem;
+            border-left: 3px solid var(--pt-yellow);
+        }
+
+        .stat-val {
+            font-family: var(--font-sub);
+            font-size: 2.2rem;
+            line-height: 1;
+            color: var(--pt-yellow);
+        }
+
+        .stat-lbl {
+            font-size: 0.72rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+        }
+
+        /* WORLDSBK TELEMETRY & STANDINGS SECTION */
+        .wsbk-section {
+            padding: 5rem 8%;
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border-dark);
+        }
+
+        .wsbk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 3rem;
+            margin-top: 2.5rem;
+        }
+
+        .wsbk-card-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dark);
+            border-top: 2px solid var(--pt-yellow);
+            padding: 1.8rem;
+            border-radius: 4px;
+        }
+
+        .wsbk-card-box h3 {
+            font-family: var(--font-head);
+            font-size: 1.2rem;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        .wsbk-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            text-align: left;
+        }
+
+        .wsbk-table th {
+            font-family: var(--font-head);
+            font-size: 0.7rem;
+            color: var(--text-gray);
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border-dark);
+            text-transform: uppercase;
+        }
+
+        .wsbk-table td {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid var(--border-dark);
+        }
+
+        .highlight-row {
+            background: rgba(255, 230, 0, 0.08);
+            font-weight: 700;
+        }
+
+        .highlight-row td {
+            color: var(--pt-yellow);
+        }
+
+        .lap-time-badge {
+            font-family: var(--font-head);
+            font-size: 0.82rem;
+            color: var(--pt-yellow);
+        }
+
+        /* DEALER LOCATOR BAR */
+        .dealer-bar {
+            background: var(--bg-surface);
+            padding: 3rem 5%;
+            text-align: center;
+            border-bottom: 1px solid var(--border-dark);
+        }
+
+        .dealer-bar h3 {
+            font-family: var(--font-head);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        /* MODAL OVERLAY */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.88);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal-card {
+            background: var(--bg-card);
+            border: 1px solid var(--pt-yellow);
+            border-radius: 4px;
+            max-width: 820px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            padding: 2.2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1.2rem;
+            background: none;
+            border: none;
+            color: var(--text-white);
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .modal-specs-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .modal-specs-list li {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border-dark);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.88rem;
+        }
+
+        .modal-specs-list span {
+            color: var(--text-gray);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #040406;
+            padding: 3rem 5% 1.5rem;
+            border-top: 1px solid var(--border-dark);
+            color: var(--text-gray);
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .hero { padding: 3rem 5%; }
+            .flagship-stats { grid-template-columns: 1fr; }
+            .compare-matrix { grid-template-columns: 1fr; }
+            .stat-comparison-row { grid-template-columns: 1fr; gap: 0.2rem; }
+            .wsbk-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="top-bar">
+        🏁 PTmoto Racing Division | WorldSBK Factory Entry piloted by #89 Jorge Martín
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo-container">
+            <img src="4946.jpg" alt="PTmoto Logo" class="logo-img">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#compare">Compare Stats</a></li>
+                <li><a href="#showroom">Commercial Fleet</a></li>
+                <li><a href="#v4srr">WorldSBK V4-SRR</a></li>
+                <li><a href="#wsbk-data">Lap Times & Standings</a></li>
+                <li><a href="#dealers">Dealer Network</a></li>
+            </ul>
+        </nav>
+        <button class="cta-btn" onclick="alert('Dealer inquiries and commercial test ride reservations active across Luzon, Visayas, and Mindanao!')">Locate Dealer</button>
+    </header>
+
+    <!-- HERO SECTION WITH INTEGRATED CUTOUT DECORATION -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <span class="hero-tag">BRED ON THE TRACK. BUILT FOR THE ROAD.</span>
+            <h1>RIDE WITHOUT COMPROMISE.</h1>
+            <p>From the #89 Jorge Martín WorldSBK V4 factory prototype to our commercial streetfighter, sport, cruiser, and luxury tourer models. Powered by precision engineering.</p>
+            <button class="cta-btn" onclick="document.getElementById('compare').scrollIntoView({behavior: 'smooth'});">Compare Models & Stats</button>
+        </div>
+        
+        <!-- DECORATIVE BIKE DISPLAY -->
+        <div class="hero-deco-container">
+            <img src="Gemini_Generated_Image_a6m4pga6m4pga6m4__1_-removebg-preview (1).png" alt="PTmoto V4-RR Limited #89 Martín Decoration" class="hero-deco-img">
+        </div>
+    </section>
+
+    <!-- MOTORCYCLE CATALOG SHOWROOM & COMPARATOR -->
+    <section class="catalog-section" id="showroom">
+        <h2 class="section-title">2027 Motorcycle Catalog</h2>
+        <p class="section-subtitle">Discover our commercial production fleet alongside our official WorldSBK factory race prototype.</p>
+        
+        <!-- INTERACTIVE COMPARISON TOOL -->
+        <div class="compare-container" id="compare">
+            <div class="compare-header">
+                <h3>⚡ Interactive Model Stat Comparison</h3>
+                <p style="color: var(--text-gray); font-size: 0.85rem;">Select any two PTmoto machines to compare technical specifications side-by-side.</p>
+            </div>
+
+            <div class="compare-selects">
+                <select class="compare-dropdown" id="bikeSelect1" onchange="updateComparison()">
+                    <!-- Populated by JS -->
+                </select>
+                <div style="font-family: var(--font-head); color: var(--pt-yellow); font-size: 1.2rem; align-self: center;">VS</div>
+                <select class="compare-dropdown" id="bikeSelect2" onchange="updateComparison()">
+                    <!-- Populated by JS -->
+                </select>
+            </div>
+
+            <div id="comparisonResult">
+                <!-- Dynamically Populated Side-by-Side Comparison Matrix -->
+            </div>
+        </div>
+
+        <!-- CATEGORY TAXONOMY TABS -->
+        <div class="category-tabs">
+            <button class="tab-btn active" onclick="filterModels('all', this)">All Vehicles</button>
+            <button class="tab-btn" onclick="filterModels('sport', this)">Sport & Competition</button>
+            <button class="tab-btn" onclick="filterModels('touring', this)">Multi-Touring (MT)</button>
+            <button class="tab-btn" onclick="filterModels('cruiser', this)">Cruiser & Bobber</button>
+            <button class="tab-btn" onclick="filterModels('naked', this)">Hyper-Naked (NK)</button>
+        </div>
+
+        <div class="showroom-grid" id="cardsContainer">
+            <!-- Dynamically Rendered by JS -->
+        </div>
+    </section>
+
+    <!-- FLAGSHIP V4-SRR SPOTLIGHT (JORGE MARTIN WORLDSBK FACTORY WEAPON) -->
+    <section class="flagship-banner" id="v4srr">
+        <div class="flagship-img-col">
+            <img src="4945.jpg" alt="PTmoto V4-SRR #89 Jorge Martín Factory Race Machine">
+        </div>
+        <div class="flagship-text-col">
+            <span class="hero-tag" style="background: var(--pt-yellow); color:#000;">WORLDSBK FACTORY PROTOYPE (NOT FOR SALE)</span>
+            <h2 class="flagship-title">PTmoto V4-SRR</h2>
+            <div class="rider-badge">PILOTED BY #89 JORGE MARTÍN</div>
+            <p>Our official World Superbike Championship (WorldSBK) entry ridden by Jorge Martín (#89). Featuring a 242 hp counter-rotating V4 engine, titanium Akrapovič racing system, full race telemetry, and active WorldSBK aero winglets.</p>
+            
+            <div class="flagship-stats">
+                <div>
+                    <div class="stat-val">242 HP</div>
+                    <div class="stat-lbl">Race Output</div>
+                </div>
+                <div>
+                    <div class="stat-val">#89</div>
+                    <div class="stat-lbl">Jorge Martín</div>
+                </div>
+                <div>
+                    <div class="stat-val">168 kg</div>
+                    <div class="stat-lbl">Dry Weight</div>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem;">
+                <button class="cta-btn" onclick="openModal(5)">View #89 Race Specs</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- WORLDSBK STANDINGS & LAP TIMES SECTION -->
+    <section class="wsbk-section" id="wsbk-data">
+        <h2 class="section-title">WorldSBK Telemetry & Championship Standings</h2>
+        <p class="section-subtitle">Official race performance metrics and championship standings for PTmoto Racing Division (#89 Jorge Martín).</p>
+
+        <div class="wsbk-grid">
+            <!-- STANDINGS CARD -->
+            <div class="wsbk-card-box">
+                <h3>🏆 Rider Championship Standings</h3>
+                <table class="wsbk-table">
+                    <thead>
+                        <tr>
+                            <th>Pos</th>
+                            <th>Rider</th>
+                            <th>Team / Machine</th>
+                            <th>Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Nicolo Bulega</td>
+                            <td>Aruba.it Ducati</td>
+                            <td>726</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td>2</td>
+                            <td>#89 Jorge Martín</td>
+                            <td>PTmoto WorldSBK Factory V4-SRR</td>
+                            <td>612</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Iker Lecuona</td>
+                            <td>Aruba.it Ducati</td>
+                            <td>563</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Yari Montella</td>
+                            <td>Barni Spark Racing</td>
+                            <td>318</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Sam Lowes</td>
+                            <td>ELF Marc VDS Racing</td>
+                            <td>268</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- LAP TIMES CARD -->
+            <div class="wsbk-card-box">
+                <h3>⏱️ V4-SRR Benchmark Lap Times</h3>
+                <table class="wsbk-table">
+                    <thead>
+                        <tr>
+                            <th>Circuit</th>
+                            <th>Session</th>
+                            <th>Fastest Lap</th>
+                            <th>Top Speed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Phillip Island (AUS)</td>
+                            <td>Superpole</td>
+                            <td><span class="lap-time-badge">1'28.214</span></td>
+                            <td>328.4 km/h</td>
+                        </tr>
+                        <tr>
+                            <td>TT Circuit Assen (NED)</td>
+                            <td>Race 1</td>
+                            <td><span class="lap-time-badge">1'33.102</span></td>
+                            <td>312.8 km/h</td>
+                        </tr>
+                        <tr>
+                            <td>Donington Park (UK)</td>
+                            <td>Superpole Race</td>
+                            <td><span class="lap-time-badge">1'25.889</span></td>
+                            <td>289.5 km/h</td>
+                        </tr>
+                        <tr>
+                            <td>Circuito de Jerez (ESP)</td>
+                            <td>Race 2</td>
+                            <td><span class="lap-time-badge">1'38.450</span></td>
+                            <td>301.2 km/h</td>
+                        </tr>
+                        <tr>
+                            <td>Portimão (POR)</td>
+                            <td>Superpole</td>
+                            <td><span class="lap-time-badge">1'39.610</span></td>
+                            <td>324.1 km/h</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEALER LOCATOR BANNER -->
+    <section class="dealer-bar" id="dealers">
+        <h3>Find Your Nearest PTmoto Dealership</h3>
+        <p style="color: var(--text-gray); margin-bottom: 1.5rem;">Explore our commercial motorcycle network across Luzon, Visayas, and Mindanao.</p>
+        <button class="cta-btn" onclick="alert('Locating nearest commercial dealer nationwide...')">Find Dealership</button>
+    </section>
+
+    <!-- MODAL POPUP FOR SPECS -->
+    <div class="modal-overlay" id="specModal">
+        <div class="modal-card">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <div style="text-align: center;">
+                <img src="" id="modalImg" style="width: 100%; height: auto; max-height: 250px; object-fit: contain;">
+                <h2 id="modalTitle" style="font-family: var(--font-sub); font-size: 2.2rem; margin-top: 1rem; text-transform: uppercase;"></h2>
+                <p id="modalCategory" style="color: var(--pt-yellow); font-family: var(--font-head); font-size: 0.75rem; text-transform: uppercase;"></p>
+                <div id="modalPrice" style="font-family: var(--font-head); font-size: 1.25rem; margin-top: 0.5rem; color:#fff;"></div>
+            </div>
+            <div>
+                <h3 style="font-family: var(--font-head); font-size: 0.9rem; border-bottom: 1px solid var(--border-dark); padding-bottom: 0.5rem; text-transform: uppercase;">Technical Specifications</h3>
+                <ul class="modal-specs-list" id="modalSpecsList">
+                    <!-- Dynamic Details -->
+                </ul>
+                <button id="modalActionBtn" class="cta-btn" style="width: 100%; margin-top: 1.5rem;"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2027 PTmoto Philippines Official & PTmoto WorldSBK Racing Team (#89 Jorge Martín). All rights reserved.</p>
+    </footer>
+
+    <!-- JAVASCRIPT DATA & LOGIC -->
+    <script>
+        const models = [
+            {
+                id: 0,
+                name: "PTmoto Apex 600",
+                category: "sport",
+                categoryLabel: "COMMERCIAL SPORT (SR)",
+                price: "₱438,900",
+                hpVal: 119,
+                torqueVal: 64,
+                weightVal: 193,
+                isRaceOnly: false,
+                currentImage: "4951.jpg",
+                liveries: [
+                    { name: "Stealth Black", image: "4951.jpg", colorClass: "dot-black" },
+                    { name: "Pro Racing Blue", image: "4953.jpg", colorClass: "dot-blue" }
+                ],
+                engine: "599cc Inline-4",
+                power: "119 hp @ 14,250 RPM",
+                torque: "64 Nm @ 11,500 RPM",
+                weight: "193 kg",
+                frame: "Twin-Spar Aluminum",
+                features: "Under-seat exhaust, 6-axis IMU, Quickshifter, Aero Winglets"
+            },
+            {
+                id: 1,
+                name: "PTmoto Titan EVO 1100",
+                category: "touring",
+                categoryLabel: "MULTI-TOURING (MT)",
+                price: "₱676,900",
+                hpVal: 101,
+                torqueVal: 105,
+                weightVal: 238,
+                isRaceOnly: false,
+                currentImage: "4947.jpg",
+                liveries: [
+                    { name: "Stealth Black", image: "4947.jpg", colorClass: "dot-black" },
+                    { name: "Pro Racing Blue", image: "4957.jpg", colorClass: "dot-blue" }
+                ],
+                engine: "1,084cc Parallel-Twin",
+                power: "101 hp @ 7,500 RPM",
+                torque: "105 Nm @ 6,250 RPM",
+                weight: "238 kg",
+                frame: "Steel Diamond",
+                features: "Adjustable Screen, Cruise Control, Multi-Rider Modes, Long-Travel Suspension"
+            },
+            {
+                id: 2,
+                name: "PTmoto Vengeance 500",
+                category: "naked",
+                categoryLabel: "HYPER-NAKED (NK)",
+                price: "₱272,800",
+                hpVal: 47,
+                torqueVal: 43,
+                weightVal: 189,
+                isRaceOnly: false,
+                currentImage: "4948.jpg",
+                liveries: [
+                    { name: "Stealth Black", image: "4948.jpg", colorClass: "dot-black" },
+                    { name: "Pro Racing Blue", image: "4956.jpg", colorClass: "dot-blue" }
+                ],
+                engine: "471cc Parallel-Twin",
+                power: "47 hp @ 8,600 RPM",
+                torque: "43 Nm @ 6,500 RPM",
+                weight: "189 kg",
+                frame: "Steel Diamond",
+                features: "Inverted Front Forks, Radial Dual Disc Brakes, Aggressive Ergonomics"
+            },
+            {
+                id: 3,
+                name: "PTmoto Challenger 300",
+                category: "cruiser",
+                categoryLabel: "CRUISER & BOBBER (CL-C)",
+                price: "₱146,900",
+                hpVal: 26,
+                torqueVal: 27,
+                weightVal: 165,
+                isRaceOnly: false,
+                currentImage: "4949.jpg",
+                liveries: [
+                    { name: "Stealth Black", image: "4949.jpg", colorClass: "dot-black" },
+                    { name: "Pro Racing Blue", image: "4955.jpg", colorClass: "dot-blue" }
+                ],
+                engine: "286cc Single-Cylinder",
+                power: "26 hp @ 8,500 RPM",
+                torque: "27 Nm @ 7,500 RPM",
+                weight: "165 kg",
+                frame: "Steel Diamond Tubular",
+                features: "Low 690mm Seat Height, Blacked-out Exhaust, Slipper Clutch, Fat Bobber Tires"
+            },
+            {
+                id: 4,
+                name: "PTmoto Winger",
+                category: "touring",
+                categoryLabel: "MULTI-TOURING (MT)",
+                price: "₱745,900",
+                hpVal: 125,
+                torqueVal: 170,
+                weightVal: 367,
+                isRaceOnly: false,
+                currentImage: "4950.jpg",
+                liveries: [
+                    { name: "Stealth Black", image: "4950.jpg", colorClass: "dot-black" },
+                    { name: "Pro Racing Blue", image: "4954.jpg", colorClass: "dot-blue" }
+                ],
+                engine: "1,833cc Flat-6 Engine",
+                power: "125 hp @ 5,500 RPM",
+                torque: "170 Nm @ 4,500 RPM",
+                weight: "367 kg",
+                frame: "Twin-Spar Aluminum",
+                features: "7-inch TFT Navigation, Hard Panniers, Double Wishbone Front Suspension, Electronic Reverse"
+            },
+            {
+                id: 45,
+                name: "PTmoto V4-RR Limited (#89 Martín)",
+                category: "sport",
+                categoryLabel: "COMMERCIAL FLAGSHIP SUPERBIKE",
+                price: "₱1,288,000",
+                hpVal: 217,
+                torqueVal: 113,
+                weightVal: 201,
+                isRaceOnly: false,
+                currentImage: "PTmoto.png",
+                liveries: [
+                    { name: "#89 Martín Yellow", image: "PTmoto.png", colorClass: "dot-yellow" }
+                ],
+                engine: "999cc Inline-4 (CBR1000RR-R Platform)",
+                power: "217 hp @ 14,500 RPM",
+                torque: "113 Nm @ 12,500 RPM",
+                weight: "201 kg",
+                frame: "Aluminum Twin-Spar Frame",
+                features: "Road-Legal WorldSBK Homologation, Titanium Exhaust, Akrapovič Silencer, Aero Wings, #89 Martín Livery"
+            },
+            {
+                id: 5,
+                name: "PTmoto V4-SRR",
+                category: "sport",
+                categoryLabel: "WORLDSBK FACTORY RACE BIKE (#89 JORGE MARTÍN)",
+                price: "NOT FOR SALE (WorldSBK Factory Entry)",
+                hpVal: 242,
+                torqueVal: 122,
+                weightVal: 168,
+                isRaceOnly: true,
+                currentImage: "4945.jpg",
+                liveries: [
+                    { name: "WorldSBK Yellow", image: "4945.jpg", colorClass: "dot-yellow" }
+                ],
+                engine: "997cc 90° V4 Race Engine",
+                power: "242 hp @ 15,800 RPM",
+                torque: "122 Nm @ 11,800 RPM",
+                weight: "168 kg",
+                frame: "Twin-Spar / Carbon Subframe",
+                features: "Akrapovič Titanium Exhaust, Öhlins Electronic Suspension, MotoGP Aero Wings, WorldSBK Telemetry"
+            }
+        ];
+
+        function switchLivery(modelId, imgPath) {
+            const model = models.find(m => m.id === modelId);
+            if (!model) return;
+            model.currentImage = imgPath;
+            
+            const activeTab = document.querySelector('.tab-btn.active');
+            const activeCat = activeTab ? activeTab.getAttribute('onclick').match(/'([^']+)'/)[1] : 'all';
+            
+            renderCards(activeCat);
+            updateComparison();
+        }
+
+        function populateCompareSelects() {
+            const select1 = document.getElementById('bikeSelect1');
+            const select2 = document.getElementById('bikeSelect2');
+
+            select1.innerHTML = '';
+            select2.innerHTML = '';
+
+            models.forEach((m) => {
+                const opt1 = document.createElement('option');
+                opt1.value = m.id;
+                opt1.innerText = m.name;
+                if(m.id === 45) opt1.selected = true;
+                select1.appendChild(opt1);
+
+                const opt2 = document.createElement('option');
+                opt2.value = m.id;
+                opt2.innerText = m.name;
+                if(m.id === 5) opt2.selected = true;
+                select2.appendChild(opt2);
+            });
+
+            updateComparison();
+        }
+
+        function updateComparison() {
+            const id1 = parseInt(document.getElementById('bikeSelect1').value);
+            const id2 = parseInt(document.getElementById('bikeSelect2').value);
+
+            const b1 = models.find(m => m.id === id1);
+            const b2 = models.find(m => m.id === id2);
+
+            const resContainer = document.getElementById('comparisonResult');
+
+            resContainer.innerHTML = `
+                <div class="compare-matrix">
+                    <div class="compare-bike-box">
+                        <img src="${b1.currentImage}" alt="${b1.name}">
+                        <div class="compare-bike-title">${b1.name}</div>
+                        <div style="font-size:0.75rem; color:var(--pt-yellow);">${b1.categoryLabel}</div>
+                    </div>
+                    <div style="text-align:center; font-family:var(--font-head); font-size:0.8rem; color:var(--text-gray);">
+                        STATS
+                    </div>
+                    <div class="compare-bike-box">
+                        <img src="${b2.currentImage}" alt="${b2.name}">
+                        <div class="compare-bike-title">${b2.name}</div>
+                        <div style="font-size:0.75rem; color:var(--pt-yellow);">${b2.categoryLabel}</div>
+                    </div>
+                </div>
+
+                <div style="max-width:900px; margin: 1.5rem auto 0;">
+                    <div class="stat-comparison-row">
+                        <div class="${b1.hpVal >= b2.hpVal ? 'stat-val-highlight' : ''}">${b1.power}</div>
+                        <div class="compare-stat-label">HORSEPOWER</div>
+                        <div class="${b2.hpVal >= b1.hpVal ? 'stat-val-highlight' : ''}">${b2.power}</div>
+                    </div>
+                    <div class="stat-comparison-row">
+                        <div class="${b1.torqueVal >= b2.torqueVal ? 'stat-val-highlight' : ''}">${b1.torque}</div>
+                        <div class="compare-stat-label">TORQUE</div>
+                        <div class="${b2.torqueVal >= b1.torqueVal ? 'stat-val-highlight' : ''}">${b2.torque}</div>
+                    </div>
+                    <div class="stat-comparison-row">
+                        <div class="${b1.weightVal <= b2.weightVal ? 'stat-val-highlight' : ''}">${b1.weight}</div>
+                        <div class="compare-stat-label">CURB WEIGHT</div>
+                        <div class="${b2.weightVal <= b1.weightVal ? 'stat-val-highlight' : ''}">${b2.weight}</div>
+                    </div>
+                    <div class="stat-comparison-row">
+                        <div>${b1.engine}</div>
+                        <div class="compare-stat-label">ENGINE TYPE</div>
+                        <div>${b2.engine}</div>
+                    </div>
+                    <div class="stat-comparison-row">
+                        <div>${b1.frame}</div>
+                        <div class="compare-stat-label">CHASSIS</div>
+                        <div>${b2.frame}</div>
+                    </div>
+                    <div class="stat-comparison-row" style="border-bottom:none;">
+                        <div class="${b1.isRaceOnly ? 'stat-val-highlight' : ''}">${b1.price}</div>
+                        <div class="compare-stat-label">SRP PRICE</div>
+                        <div class="${b2.isRaceOnly ? 'stat-val-highlight' : ''}">${b2.price}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderCards(filter = 'all') {
+            const container = document.getElementById('cardsContainer');
+            container.innerHTML = '';
+
+            const filteredModels = filter === 'all' 
+                ? models 
+                : models.filter(m => m.category === filter);
+
+            filteredModels.forEach(m => {
+                const card = document.createElement('div');
+                card.className = 'moto-card';
+                
+                const priceClass = m.isRaceOnly ? 'moto-price race-only' : 'moto-price';
+
+                let liveryHTML = '';
+                if(m.liveries.length > 1) {
+                    liveryHTML = `<div class="livery-picker"><span class="livery-lbl">Livery:</span>`;
+                    m.liveries.forEach(liv => {
+                        const activeClass = m.currentImage === liv.image ? 'active' : '';
+                        liveryHTML += `<div class="livery-dot ${liv.colorClass} ${activeClass}" title="${liv.name}" onclick="switchLivery(${m.id}, '${liv.image}')"></div>`;
+                    });
+                    liveryHTML += `</div>`;
+                }
+
+                card.innerHTML = `
+                    <div class="moto-img-box">
+                        <img src="${m.currentImage}" alt="${m.name}">
+                    </div>
+                    <div class="moto-details">
+                        <div>
+                            <div class="moto-cat">${m.categoryLabel}</div>
+                            <div class="moto-name">${m.name}</div>
+                            <div class="${priceClass}">${m.price}</div>
+                            ${liveryHTML}
+                            <div class="moto-specs-row">
+                                <div><strong>Engine:</strong> ${m.engine}</div>
+                                <div><strong>Power:</strong> ${m.power.split('@')[0]}</div>
+                                <div><strong>Weight:</strong> ${m.weight}</div>
+                                <div><strong>Frame:</strong> ${m.frame}</div>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn-outline" onclick="openModal(${m.id})">${m.isRaceOnly ? 'View Race Specs' : 'View Specs'}</button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function filterModels(cat, btn) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderCards(cat);
+        }
+
+        function openModal(id) {
+            const model = models.find(m => m.id === id);
+            if (!model) return;
+
+            document.getElementById('modalImg').src = model.currentImage;
+            document.getElementById('modalTitle').innerText = model.name;
+            document.getElementById('modalCategory').innerText = model.categoryLabel;
+            
+            const priceElem = document.getElementById('modalPrice');
+            priceElem.innerText = model.price;
+            priceElem.style.color = model.isRaceOnly ? 'var(--pt-yellow)' : '#fff';
+
+            const specsList = document.getElementById('modalSpecsList');
+            specsList.innerHTML = `
+                <li><span>Engine Specification</span> <strong>${model.engine}</strong></li>
+                <li><span>Power Output</span> <strong>${model.power}</strong></li>
+                <li><span>Torque Rating</span> <strong>${model.torque}</strong></li>
+                <li><span>Curb / Race Weight</span> <strong>${model.weight}</strong></li>
+                <li><span>Frame Chassis</span> <strong>${model.frame}</strong></li>
+                <li><span>Key Electronics / Aero</span> <strong>${model.features}</strong></li>
+            `;
+
+            const actionBtn = document.getElementById('modalActionBtn');
+            if(model.isRaceOnly) {
+                actionBtn.innerText = "Inquire WorldSBK Paddock Access / #89 Merch";
+                actionBtn.onclick = () => alert('Inquiry submitted to PTmoto WorldSBK Racing Team for ' + model.name);
+            } else {
+                actionBtn.innerText = "Inquire Commercial Dealer Quote";
+                actionBtn.onclick = () => alert('Inquiry submitted to PTmoto Commercial Sales for ' + model.name);
+            }
+
+            document.getElementById('specModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('specModal').style.display = 'none';
+        }
+
+        // Initialize on load
+        populateCompareSelects();
+        renderCards();
+    </script>
+</body>
+</html>
